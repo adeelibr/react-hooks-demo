@@ -4,6 +4,8 @@ body {
   font-family: 'Comfortaa', cursive;
   background-color: #FFEB3B;
   margin-bottom: 50px;
+  padding: 0;
+  margin: 0;
 }
 
 .main-heading {
@@ -15,7 +17,9 @@ body {
   display: flex; 
   flex-direction: row;
   align-items: flex-start;
+  justify-content: center;
   flex-wrap: wrap;
+  padding: 10px;
 }
 
 .section div {
