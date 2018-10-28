@@ -7,6 +7,10 @@ The demo uses starter kit https://github.com/adeelibr/react-starter-kit
 * Example of useState
 * Example of useEffect
 * Example of useContext
+* Example of custom hooks
+  * custom hook useWindowWidth 
+  * custom hook useDocumentTitle 
+  * custom hook useFormInput 
 
 ### How to run
 
