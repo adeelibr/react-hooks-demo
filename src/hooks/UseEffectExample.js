@@ -6,7 +6,7 @@ export class TitleClass extends React.Component {
     this.state = {
       name: 'Bilbo Baggins',
       age: 25,
-      width: 0,
+      width: window.innerWidth,
     };
     this.onHandleNameChange = this.onHandleNameChange.bind(this);
     this.onHandleAgeChange = this.onHandleAgeChange.bind(this);
@@ -71,6 +71,14 @@ export function Title() {
   useEffect(() => {
     document.title = `${name} | ${age}`;
   });
+  const [height, setHeight] = useState(window.innerHeight);
+  useEffect(() => {
+    const handleResize = setHeight(window.innerHeight);
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  });
   function handleNameChange(e) {
     setName(e.target.value);
   }
@@ -86,6 +94,10 @@ export function Title() {
       <section className="row">
         <span>Age</span>
         <input type="text" value={age} onChange={handleAgeChange} />
+      </section>
+      <section className="row">
+        <span>Height</span>
+        <input type="text" value={height} disabled />
       </section>
     </Fragment>
   );
