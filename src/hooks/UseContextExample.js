@@ -33,11 +33,19 @@ export class ContextClass extends React.Component {
           <Fragment>
             <section className={`row ${theme.dark}`}>
               <span>Name</span>
-              <input type="text" value={name} onChange={this.onHandleNameChange} />
+              <input
+                type="text"
+                value={name}
+                onChange={this.onHandleNameChange}
+              />
             </section>
             <section className={`row ${theme.light}`}>
               <span>Age</span>
-              <input type="text" value={age} onChange={this.onHandleAgeChange} />
+              <input
+                type="text"
+                value={age}
+                onChange={this.onHandleAgeChange}
+              />
             </section>
             <LocaleContext.Consumer>
               {({ locale }) => (
