@@ -11,7 +11,7 @@ The demo uses starter kit https://github.com/adeelibr/react-starter-kit
   * custom hook useWindowWidth 
   * custom hook useDocumentTitle 
   * custom hook useFormInput 
-* UseReducerExample
+* Example of useReducer
 
 ### How to run
 
