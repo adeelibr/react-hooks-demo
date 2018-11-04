@@ -10,6 +10,7 @@ import { Greeting, GreetingClass } from './hooks/UseStateExample';
 import { Context, ContextClass } from './hooks/UseContextExample';
 import { Title, TitleClass } from './hooks/UseEffectExample';
 import { CustomHook } from './hooks/UseCustomHooks';
+import PokemonInfo from './hooks/UseReducerExample';
 
 class App extends Component {
   state = {
@@ -17,6 +18,7 @@ class App extends Component {
     isUseContextVisible: false,
     isUseEffectsVisible: false,
     isUseCustomHooksVisible: false,
+    isUseReducerVisible: true,
   };
 
   render() {
@@ -25,6 +27,7 @@ class App extends Component {
       isUseContextVisible,
       isUseEffectsVisible,
       isUseCustomHooksVisible,
+      isUseReducerVisible,
     } = this.state;
     return (
       <div>
@@ -78,6 +81,16 @@ class App extends Component {
           <div>
             <h1 className="heading">new way</h1>
             <CustomHook />
+          </div>
+        </Section>
+        <Section
+          isVisible={isUseReducerVisible}
+          heading="useReducer"
+          sectionBg="white-bg"
+        >
+          <div>
+            <h1 className="heading">Count Example</h1>
+            <PokemonInfo />
           </div>
         </Section>
       </div>
