@@ -11,28 +11,33 @@ import { Context, ContextClass } from './hooks/UseContextExample';
 import { Title, TitleClass } from './hooks/UseEffectExample';
 import { CustomHook } from './hooks/UseCustomHooks';
 import PokemonInfo from './hooks/UseReducerExample';
+import Progress from './animations/Progress';
+import Fade from './animations/Fade';
+
+const VISIBLE = {
+  IS_USE_STATE_VISIBLE: 'UseStateExample',
+  IS_USE_CONTEXT_VISIBLE: 'UseContextExample',
+  IS_USE_EFFECT_VISIBLE: 'UseEffectExample',
+  IS_USE_CUSTOM_HOOKS_VISIBLE: 'UseCustomHooks',
+  IS_USE_REDUCER_VISIBLE: 'UseReducerExample',
+  IS_REACT_SPRING_1_VISIBLE: 'Progress',
+  IS_REACT_SPRING_2_VISIBLE: 'Fade',
+};
 
 class App extends Component {
   state = {
-    isUseStateVisible: false,
-    isUseContextVisible: false,
-    isUseEffectsVisible: false,
-    isUseCustomHooksVisible: false,
-    isUseReducerVisible: true,
+    isVisible: [
+      VISIBLE.IS_REACT_SPRING_1_VISIBLE,
+      VISIBLE.IS_REACT_SPRING_2_VISIBLE,
+    ],
   };
 
   render() {
-    const {
-      isUseStateVisible,
-      isUseContextVisible,
-      isUseEffectsVisible,
-      isUseCustomHooksVisible,
-      isUseReducerVisible,
-    } = this.state;
+    const { isVisible } = this.state;
     return (
       <div>
         <Section
-          isVisible={isUseStateVisible}
+          isVisible={isVisible.includes(VISIBLE.IS_USE_STATE_VISIBLE)}
           heading="useState"
           sectionBg="purple-bg"
         >
@@ -46,7 +51,7 @@ class App extends Component {
           </div>
         </Section>
         <Section
-          isVisible={isUseContextVisible}
+          isVisible={isVisible.includes(VISIBLE.IS_USE_CONTEXT_VISIBLE)}
           heading="useContext"
           sectionBg="white-bg"
         >
@@ -60,7 +65,7 @@ class App extends Component {
           </div>
         </Section>
         <Section
-          isVisible={isUseEffectsVisible}
+          isVisible={isVisible.includes(VISIBLE.IS_USE_EFFECT_VISIBLE)}
           heading="useEffect"
           sectionBg="gainsboro-bg"
         >
@@ -74,7 +79,7 @@ class App extends Component {
           </div>
         </Section>
         <Section
-          isVisible={isUseCustomHooksVisible}
+          isVisible={isVisible.includes(VISIBLE.IS_USE_CUSTOM_HOOKS_VISIBLE)}
           heading="useCustomHooks"
           sectionBg="purple-bg"
         >
@@ -84,7 +89,7 @@ class App extends Component {
           </div>
         </Section>
         <Section
-          isVisible={isUseReducerVisible}
+          isVisible={isVisible.includes(VISIBLE.IS_USE_REDUCER_VISIBLE)}
           heading="useReducer"
           sectionBg="white-bg"
         >
@@ -92,6 +97,20 @@ class App extends Component {
             <h1 className="heading">Count Example</h1>
             <PokemonInfo />
           </div>
+        </Section>
+        <Section
+          isVisible={isVisible.includes(VISIBLE.IS_REACT_SPRING_1_VISIBLE)}
+          heading="React Spring Progress Bar Example"
+          sectionBg="gainsboro-bg"
+        >
+          <Progress />
+        </Section>
+        <Section
+          isVisible={isVisible.includes(VISIBLE.IS_REACT_SPRING_2_VISIBLE)}
+          heading="React Spring Fade Bar Example"
+          sectionBg="gainsboro-bg"
+        >
+          <Fade />
         </Section>
       </div>
     );
